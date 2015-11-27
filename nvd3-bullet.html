@@ -1,0 +1,37 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../nvd3-behavior/nvd3-behavior.html">
+
+<!--
+An element to create bullet chart using nvd3.
+
+Example:
+
+    <nvd3-bullet data="[[data]]"></nvd3-bullet>
+
+@group NVD3 Elements
+@element nvd3-bullet
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="nvd3-bullet">
+  <template>
+    <div>
+      <svg id="svg"></svg>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'nvd3-bullet',
+      behaviors: [NVD3.ChartBehavior],
+
+      attached: function () {
+        this.set('svg', this.$.svg);
+        this.set('chart', nv.models.bulletChart());
+
+        this.generateChart();
+      }
+    });
+  </script>
+</dom-module>
