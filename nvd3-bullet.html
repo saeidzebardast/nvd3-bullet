@@ -37,12 +37,106 @@ Data Format:
     Polymer({
       is: 'nvd3-bullet',
       behaviors: [NVD3.ChartBehavior],
+      properties: {
+        /**
+         * NVD3 chart object.
+         */
+        chart: {
+          type: Object,
+          value: function() {
+            return nv.models.bulletChart();
+          }
+        },
 
-      attached: function () {
+        /**
+         * Colors to use for the different data.
+         * If an array is given, it is converted to a function automatically.
+         */
+        color: {
+          type: Array,
+          value: function() {
+            return nv.utils.defaultColor();
+          }
+        },
+
+        /**
+         * The height the graph or component created inside the SVG should be made.
+         * Default: The height of the container element (normally the svg itself).
+         */
+        height: {
+          type: Number
+        },
+
+        /**
+         * Object containing the margins for the chart or component.
+         * You can specify only certain margins in the object to change just
+         * those parts.
+         */
+        margin: {
+          type: Object,
+          value: {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+
+        /**
+         * Message to display if no data is provided.
+         */
+        noData: {
+          type: String,
+          value: 'No Data Available.'
+        },
+
+        /**
+         * The width the graph or component created inside the SVG should be made.
+         * Default: The width of the container element (normally the svg itself).
+         */
+        width: {
+          type: Number
+        }
+      },
+
+      observers: [
+        '_setColor(color.length)',
+        '_setHeight(height)',
+        '_setMargin(margin.top, margin.right, margin.bottom, margin.left)',
+        '_setNoData(noData)',
+        '_setWidth(width)'
+      ],
+
+      _setColor: function(colorLength) {
+        this.chart.color(this.color);
+      },
+
+      _setHeight: function(height) {
+        if (typeof height === 'number' && height > 0) {
+          this.chart.height(height);
+        }
+      },
+
+      _setMargin: function(marginTop, marginRight, marginBottom, marginLeft) {
+        this.chart.margin(this.margin);
+      },
+
+      _setNoData: function(noData) {
+        this.chart.noData(this.noData);
+      },
+
+      _setWidth: function(width) {
+        if (typeof width === 'number' && width > 0) {
+          this.chart.width(width);
+        }
+      },
+
+      attached: function() {
         this.set('svg', this.$.svg);
-        this.set('chart', nv.models.bulletChart());
 
-        this.generateChart();
+        if (!this.stopAutoDrawing) {
+          this.generateChart();
+        }
       }
     });
   </script>
