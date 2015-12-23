@@ -1,6 +1,7 @@
 <!doctype html>
 
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
@@ -8,26 +9,27 @@
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
   <link rel="import" href="../nvd3-bullet.html">
 </head>
+
 <body unresolved>
 
-<p>An example of <code>&lt;nvd3-bullet&gt;</code>:</p>
+  <p>An example of
+    <code>&lt;nvd3-bullet&gt;</code>:</p>
 
-<nvd3-bullet height="50" width="500">
+  <nvd3-bullet height="50" width="500">
 
-</nvd3-bullet>
+  </nvd3-bullet>
 
-<script>
-  var el = document.querySelector('nvd3-bullet');
-  el.set('data', {
-            "title": "Revenue",
-            "subtitle": "US$, in thousands",
-            "ranges": [150,225,300],
-            "measures": [220],
-            "markers": [250]
-          }
-  );
-
-</script>
+  <script>
+    var el = document.querySelector('nvd3-bullet');
+    el.set('data', {
+      "title": "Revenue",
+      "subtitle": "US$, in thousands",
+      "ranges": [150, 225, 300],
+      "measures": [220],
+      "markers": [250]
+    });
+  </script>
 
 </body>
+
 </html>

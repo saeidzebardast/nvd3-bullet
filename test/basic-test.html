@@ -9,26 +9,70 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
-    <!-- Step 1: import the element to test -->
-    <link rel="import" href="../nvd3-bullet.html">
-  </head>
-  <body>
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
 
-    <!-- You can use the document as a place to set up your fixtures. -->
-    <nvd3-bullet></nvd3-bullet>
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../nvd3-bullet.html">
+</head>
 
-    <script>
-      var myEl = document.querySelector('nvd3-bullet');
+<body>
 
-      // TODO: Implement tests
-    </script>
+  <!-- You can use the document as a place to set up your fixtures. -->
+  <test-fixture id="nvd3-bullet-fixture">
+    <template>
+      <nvd3-bullet stop-auto-drawing></nvd3-bullet>
+    </template>
+  </test-fixture>
 
-  </body>
+  <script>
+    suite('<nvd3-bullet>', function() {
+      var myEl;
+      setup(function() {
+        myEl = fixture('nvd3-bullet-fixture');
+      });
+
+      test('height is set', function() {
+        myEl.set('height', 300);
+        assert.equal(myEl.chart.height(), myEl.height);
+      });
+
+      test('width is set', function() {
+        myEl.set('width', 400);
+        assert.equal(myEl.chart.width(), myEl.width);
+      });
+
+      test('marging is set', function() {
+        myEl.set('margin', {
+          "top": 10,
+          "right": 20,
+          "bottom": 30,
+          "left": 40
+        });
+
+        assert.equal(myEl.chart.margin().top, myEl.margin.top);
+        assert.equal(myEl.chart.margin().right, myEl.margin.right);
+        assert.equal(myEl.chart.margin().bottom, myEl.margin.bottom);
+        assert.equal(myEl.chart.margin().left, myEl.margin.left);
+      });
+
+      test('no data message is set', function() {
+        myEl.set('noData', 'No Data Available');
+        assert.equal(myEl.chart.noData(), myEl.noData);
+      });
+
+      test('distributed children', function() {
+        var els = myEl.getContentChildren();
+        assert.equal(els.length, 0, 'no distributed node');
+      });
+    });
+  </script>
+
+</body>
+
 </html>
