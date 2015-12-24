@@ -28,7 +28,7 @@ Data Format:
 
 <dom-module id="nvd3-bullet">
   <template>
-    <svg id="svg"></svg>
+    <svg></svg>
   </template>
 
   <script>
@@ -81,14 +81,6 @@ Data Format:
         },
 
         /**
-         * Message to display if no data is provided.
-         */
-        noData: {
-          type: String,
-          value: 'No Data Available.'
-        },
-
-        /**
          * The width the graph or component created inside the SVG should be made.
          * Default: The width of the container element (normally the svg itself).
          */
@@ -101,7 +93,6 @@ Data Format:
         '_setColor(color.length)',
         '_setHeight(height)',
         '_setMargin(margin.top, margin.right, margin.bottom, margin.left)',
-        '_setNoData(noData)',
         '_setWidth(width)'
       ],
 
@@ -129,9 +120,11 @@ Data Format:
         }
       },
 
-      attached: function() {
-        this.set('svg', this.$.svg);
+      ready: function() {
+        this.set('svg', this.$$('svg'));
+      },
 
+      attached: function() {
         if (!this.stopAutoDrawing) {
           this.generateChart();
         }
