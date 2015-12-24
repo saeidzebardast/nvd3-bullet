@@ -61,11 +61,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         assert.equal(myEl.chart.margin().left, myEl.margin.left);
       });
 
-      test('no data message is set', function() {
-        myEl.set('noData', 'No Data Available');
-        assert.equal(myEl.chart.noData(), myEl.noData);
-      });
-
       test('distributed children', function() {
         var els = myEl.getContentChildren();
         assert.equal(els.length, 0, 'no distributed node');
