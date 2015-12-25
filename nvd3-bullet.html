@@ -28,7 +28,10 @@ Data Format:
 
 <dom-module id="nvd3-bullet">
   <template>
-    <svg></svg>
+    <!-- We need to put svg tag inside a div to set correct margins -->
+    <div>
+      <svg></svg>
+    </div>
   </template>
 
   <script>
@@ -73,10 +76,10 @@ Data Format:
         margin: {
           type: Object,
           value: {
-            "top": 0,
-            "right": 0,
-            "bottom": 0,
-            "left": 0
+            "left": null,
+            "right": null,
+            "top": null,
+            "bottom": null
           }
         },
 
@@ -107,7 +110,29 @@ Data Format:
       },
 
       _setMargin: function(marginTop, marginRight, marginBottom, marginLeft) {
-        this.chart.margin(this.margin);
+        if (marginTop) {
+          this.chart.margin({
+            "top": marginTop
+          });
+        }
+
+        if (marginRight) {
+          this.chart.margin({
+            "right": marginRight
+          });
+        }
+
+        if (marginBottom) {
+          this.chart.margin({
+            "bottom": marginBottom
+          });
+        }
+
+        if (marginLeft) {
+          this.chart.margin({
+            "left": marginLeft
+          });
+        }
       },
 
       _setNoData: function(noData) {
