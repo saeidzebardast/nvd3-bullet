@@ -22,7 +22,7 @@
     "/test/"
   ],
   "dependencies": {
-    "nvd3-behavior": "^0.5.0"
+    "nvd3-behavior": "^0.6.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

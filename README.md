@@ -13,7 +13,7 @@ bower install nvd3-bullet
 ### Tag
 
 ```
-<nvd3-bullet data="[[data]]"></nvd3-bullet>
+<nvd3-bullet data="[[data]]" auto-resize></nvd3-bullet>
 ```
 
 ### Data Format
