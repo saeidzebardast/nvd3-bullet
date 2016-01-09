@@ -1,0 +1,32 @@
+{
+  "name": "nvd3-bullet",
+  "version": "0.3.1",
+  "authors": [
+    "Saeid Zebardast <saeid.zebardast@gmail.com>"
+  ],
+  "description": "Bullet chart element for Polymer using nvd3.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "nvd3",
+    "d3",
+    "chart",
+    "graph"
+  ],
+  "main": "nvd3-bullet.html",
+  "license": "http://saeidzebardast.github.io/nvd3-elements/LICENSE.txt",
+  "homepage": "https://github.com/saeidzebardast/nvd3-bullet/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "nvd3-behavior": "^0.6.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*",
+    "github-fork-ribbon": "^0.2.2"
+  }
+}

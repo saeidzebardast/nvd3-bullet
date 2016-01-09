@@ -1,0 +1,42 @@
+{
+  "name": "nvd3-behavior",
+  "version": "0.6.0",
+  "authors": [
+    "Saeid Zebardast <saeid.zebardast@gmail.com.com>"
+  ],
+  "description": "An element providing behaviors for nvd3 charting elements.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "nvd3",
+    "d3",
+    "chart",
+    "graph",
+    "behavior"
+  ],
+  "main": "nvd3-behavior.html",
+  "license": "http://saeidzebardast.github.io/nvd3-elements/LICENSE.txt",
+  "homepage": "https://github.com/saeidzebardast/nvd3-behavior/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0",
+    "nvd3": "^1.8.1"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  },
+  "_release": "0.6.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.6.0",
+    "commit": "ecd185241b81f531a99b5363866cf5dac9785284"
+  },
+  "_source": "git://github.com/saeidzebardast/nvd3-behavior.git",
+  "_target": "^0.6.0",
+  "_originalSource": "nvd3-behavior"
+}
