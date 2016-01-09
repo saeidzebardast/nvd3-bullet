@@ -26,6 +26,11 @@ bower install nvd3-bullet
   "measures": [220],
   "markers": [250]
 }
+
+
+## Demo and Options
+See the [component page](http://saeidzebardast.github.io/nvd3-bullet) for demo and options.
+
 ```
 
 ## License
